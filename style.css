@@ -1,0 +1,1001 @@
+/* ===========================================================
+   BLUEMESH LANDING PAGE — STYLESHEET (style.css)
+   ===========================================================
+   This CSS file controls the visual design of the entire website.
+   
+   STRUCTURE:
+   1. Reset & Variables — Base styles and color definitions
+   2. Navigation — Top navbar and mobile menu
+   3. Hero — Main banner section
+   4. Features — Feature cards grid
+   5. How It Works — Step-by-step guide
+   6. About — Project info and tech stack
+   7. Team — Team members grid
+   8. Download — Download cards
+   9. Footer — Bottom section
+   10. Animations — Fade-in effects
+   11. Responsive — Mobile/tablet adjustments
+=========================================================== */
+
+
+/* ===========================================================
+   1. RESET & VARIABLES
+   - Removes default browser margins/padding
+   - Defines reusable colors and fonts as CSS variables
+=========================================================== */
+
+/* Remove all default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Makes sizing more predictable */
+}
+
+/* CSS Variables — define colors and fonts once, reuse everywhere */
+:root {
+  --bg-dark: #06080f;
+  /* Main background (very dark blue) */
+  --bg-card: #0d1220;
+  /* Card/box background */
+  --bg-card-hover: #111828;
+  /* Card hover state */
+  --border: rgba(56, 130, 246, 0.12);
+  /* Subtle blue borders */
+  --border-hover: rgba(56, 130, 246, 0.3);
+  /* Brighter border on hover */
+  --text-white: #e8ecf4;
+  /* Primary text color */
+  --text-gray: #8892a8;
+  /* Secondary text color */
+  --text-muted: #5a6478;
+  /* Least prominent text */
+  --blue: #3882f6;
+  /* Primary accent color */
+  --cyan: #06b6d4;
+  /* Secondary accent color */
+  --font: 'Inter', sans-serif;
+  /* Main font family */
+}
+
+/* Smooth scrolling when clicking anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base body styles */
+body {
+  font-family: var(--font);
+  background: var(--bg-dark);
+  color: var(--text-white);
+  line-height: 1.7;
+  overflow-x: hidden;
+  /* Prevent horizontal scrollbar */
+}
+
+/* Remove underlines from links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* ===========================================================
+   2. NAVIGATION
+   - Fixed at the top of the page (stays visible while scrolling)
+   - Becomes semi-transparent with blur effect when scrolling
+=========================================================== */
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  /* Ensures navbar stays above all other content */
+  padding: 0 24px;
+  background: transparent;
+  transition: 0.3s;
+  /* Smooth transition for scroll effect */
+}
+
+/* This class is added by JavaScript when user scrolls down */
+#navbar.scrolled {
+  background: rgba(6, 8, 15, 0.85);
+  backdrop-filter: blur(20px);
+  /* Frosted glass effect */
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* Center the navbar content */
+  display: flex;
+  /* Flexbox for horizontal layout */
+  align-items: center;
+  /* Vertically center items */
+  justify-content: space-between;
+  /* Logo on left, links on right */
+  height: 72px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-white);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-gray);
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--text-white);
+}
+
+/* Download button in the navbar */
+.nav-cta {
+  padding: 8px 20px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff !important;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.nav-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(56, 130, 246, 0.3);
+}
+
+/* Mobile hamburger menu button — hidden on desktop */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--text-white);
+  border-radius: 2px;
+}
+
+
+/* ===========================================================
+   3. HERO SECTION
+   - Full-height opening section with headline and image
+   - Uses flexbox for side-by-side layout
+=========================================================== */
+
+#hero {
+  min-height: 100vh;
+  /* Full viewport height */
+  display: flex;
+  align-items: center;
+  padding: 120px 24px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 60px;
+  /* Space between text and image */
+}
+
+.hero-content {
+  flex: 1;
+  /* Take up available space */
+  max-width: 600px;
+}
+
+/* "ICCT College Capstone Project" badge */
+.hero-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(56, 130, 246, 0.08);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  color: var(--text-gray);
+  margin-bottom: 24px;
+}
+
+#hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  /* Responsive font size */
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+/* Gradient text effect for highlighted words */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-gray);
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+.hero-subtitle strong {
+  color: var(--text-white);
+}
+
+/* Action buttons */
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+/* Button base styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+  font-family: var(--font);
+}
+
+/* Primary button — filled gradient */
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(56, 130, 246, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(56, 130, 246, 0.4);
+}
+
+/* Outline button — transparent with border */
+.btn-outline {
+  background: transparent;
+  color: var(--text-gray);
+  border: 1px solid var(--border);
+}
+
+.btn-outline:hover {
+  color: var(--text-white);
+  border-color: var(--border-hover);
+}
+
+/* Statistics row */
+.hero-stats {
+  display: flex;
+  gap: 32px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-white);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+
+/* Hero image area */
+.hero-visual {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+}
+
+
+/* ===========================================================
+   4. SHARED SECTION STYLES
+   - Reusable styles for all content sections
+=========================================================== */
+
+section {
+  padding: 100px 24px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section header — centered title block */
+.section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 64px;
+}
+
+/* Small label above section title (e.g., "FEATURES") */
+.section-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  margin-bottom: 16px;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+
+.section-header p {
+  font-size: 1.05rem;
+  color: var(--text-gray);
+}
+
+
+/* ===========================================================
+   5. FEATURES SECTION
+   - 3-column grid of feature cards
+=========================================================== */
+
+#features {
+  background: linear-gradient(180deg, var(--bg-dark) 0%, #0a0e1a 50%, var(--bg-dark) 100%);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 equal columns */
+  gap: 24px;
+}
+
+.feature-card {
+  padding: 32px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: all 0.3s;
+}
+
+.feature-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+  /* Lift up on hover */
+  box-shadow: 0 0 40px rgba(56, 130, 246, 0.15);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.feature-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  line-height: 1.65;
+}
+
+
+/* ===========================================================
+   6. HOW IT WORKS SECTION
+   - Vertical list of numbered steps
+=========================================================== */
+
+.steps-container {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.step {
+  display: flex;
+  gap: 24px;
+  padding: 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: all 0.3s;
+}
+
+.step:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  box-shadow: 0 0 40px rgba(56, 130, 246, 0.15);
+}
+
+.step-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  flex-shrink: 0;
+  /* Don't compress the number */
+}
+
+.step-content h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.step-content p {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  line-height: 1.65;
+}
+
+
+/* ===========================================================
+   7. ABOUT SECTION
+   - Two-column layout: description on left, tech stack on right
+=========================================================== */
+
+#about {
+  background: linear-gradient(180deg, var(--bg-dark) 0%, #0a0e1a 50%, var(--bg-dark) 100%);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Two equal columns */
+  gap: 60px;
+  align-items: center;
+}
+
+.about-content .section-tag {
+  text-align: left;
+}
+
+.about-content h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-size: 1rem;
+  color: var(--text-gray);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.about-content p strong {
+  color: var(--text-white);
+}
+
+/* Highlights checklist */
+.highlights-list {
+  list-style: none;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--text-gray);
+}
+
+/* Technology stack card */
+.tech-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 0 40px rgba(56, 130, 246, 0.15);
+}
+
+.tech-card h4 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  margin-bottom: 24px;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  margin-bottom: 12px;
+  transition: all 0.3s;
+}
+
+.tech-item:hover {
+  background: rgba(56, 130, 246, 0.05);
+  border-color: var(--border);
+}
+
+.tech-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Colored dots for each technology */
+.tech-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tech-dot.blue {
+  background: var(--blue);
+  box-shadow: 0 0 12px rgba(56, 130, 246, 0.5);
+}
+
+.tech-dot.yellow {
+  background: #f59e0b;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.5);
+}
+
+.tech-dot.cyan {
+  background: #22d3ee;
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.5);
+}
+
+.tech-dot.green {
+  background: #a3e635;
+  box-shadow: 0 0 12px rgba(163, 230, 53, 0.5);
+}
+
+.tech-item div {
+  display: flex;
+  flex-direction: column;
+}
+
+.tech-item strong {
+  font-size: 0.95rem;
+  color: var(--text-white);
+}
+
+.tech-item small {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+
+/* ===========================================================
+   8. TEAM SECTION
+   - Grid of team member cards with initials as avatars
+=========================================================== */
+
+#team {
+  background: linear-gradient(180deg, var(--bg-dark) 0%, #0a0e1a 50%, var(--bg-dark) 100%);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* 5 columns */
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.team-member:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+}
+
+/* Circular avatar with initials */
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.team-member span {
+  font-size: 0.8rem;
+  color: var(--text-gray);
+  line-height: 1.3;
+}
+
+
+/* ===========================================================
+   9. DOWNLOAD SECTION
+   - Highlighted box with download cards
+=========================================================== */
+
+#download {
+  padding: 120px 24px;
+}
+
+.download-box {
+  padding: 64px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.download-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* 2 columns */
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.download-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.download-card:hover {
+  background: rgba(56, 130, 246, 0.06);
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 0 40px rgba(56, 130, 246, 0.15);
+}
+
+.download-emoji {
+  font-size: 2.5rem;
+}
+
+.download-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.download-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.download-platform {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.download-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.download-note {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+
+/* ===========================================================
+   10. FOOTER
+   - Page bottom with links and branding
+=========================================================== */
+
+#footer {
+  padding: 0 24px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 64px 0 48px;
+  gap: 60px;
+}
+
+.footer-brand {
+  max-width: 320px;
+}
+
+.footer-brand p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 60px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.footer-col a {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  transition: color 0.3s;
+}
+
+.footer-col a:hover {
+  color: var(--blue);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.footer-bottom a {
+  color: var(--blue);
+}
+
+.footer-bottom a:hover {
+  color: var(--cyan);
+}
+
+
+/* ===========================================================
+   11. ANIMATIONS
+   - Fade-in effect for elements as they enter the viewport
+   - Triggered by JavaScript's IntersectionObserver
+=========================================================== */
+
+/* Elements start invisible and shifted down */
+.feature-card,
+.step,
+.about-content,
+.about-visual,
+.download-card,
+.team-member {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* When JavaScript adds "visible" class, elements fade in */
+.feature-card.visible,
+.step.visible,
+.about-content.visible,
+.about-visual.visible,
+.download-card.visible,
+.team-member.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ===========================================================
+   12. RESPONSIVE DESIGN
+   - Adjusts layout for smaller screens (tablets and phones)
+   - Uses CSS media queries to change grid columns, spacing, etc.
+=========================================================== */
+
+/* Tablet: screens 992px and below */
+@media (max-width: 992px) {
+
+  /* Stack hero vertically */
+  #hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 100px;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-stats {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    max-width: 400px;
+  }
+
+  /* 2-column feature grid */
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Stack about section */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-content {
+    text-align: center;
+  }
+
+  .about-content .section-tag {
+    text-align: center;
+  }
+
+  .highlights-list {
+    align-items: center;
+  }
+
+  /* 3-column team grid */
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Stack footer */
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
+
+/* Mobile: screens 768px and below */
+@media (max-width: 768px) {
+
+  /* Show hamburger menu, hide nav links by default */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(6, 8, 15, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 24px;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* JavaScript toggles this class to show/hide menu */
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* 1-column layouts */
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .download-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .download-box {
+    padding: 32px 20px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .step {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

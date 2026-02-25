@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ========== META TAGS ========== -->
+    <!-- These define the page title, description, and character encoding -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueMesh — Solar-Powered Bluetooth Mesh Communication</title>
+    <meta name="description"
+        content="BlueMesh is a solar-powered Bluetooth mesh communication system for local barangay communities in the Philippines.">
+
+    <!-- ========== FONTS ========== -->
+    <!-- We load the "Inter" font from Google Fonts for clean, modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- ========== CSS STYLESHEET ========== -->
+    <!-- Links to our external CSS file that handles all the styling -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ============================================================
+         NAVIGATION BAR
+         - Fixed at the top of the page
+         - Contains the logo, page links, and a download button
+         - On mobile, the links collapse into a hamburger menu
+    ============================================================ -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="#" class="nav-logo">🔷 <span>BlueMesh</span></a>
+
+            <!-- Navigation Links -->
+            <div class="nav-links" id="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#about">About</a>
+                <a href="#team">Team</a>
+                <a href="#download" class="nav-cta">Download</a>
+            </div>
+
+            <!-- Mobile Hamburger Button (hidden on desktop) -->
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+
+    <!-- ============================================================
+         HERO SECTION
+         - The first thing visitors see
+         - Contains the main headline, description, and call-to-action
+         - Shows key statistics about the system
+    ============================================================ -->
+    <section id="hero">
+        <div class="hero-content">
+            <!-- Badge label -->
+            <div class="hero-badge">ICCT College Capstone Project</div>
+
+            <!-- Main heading -->
+            <h1>Solar-Powered Mesh <span class="gradient-text">Communication</span></h1>
+
+            <!-- Description paragraph -->
+            <p class="hero-subtitle">
+                BlueMesh is a self-sustaining, mobile-based <strong>Bluetooth mesh communication system</strong>
+                powered by solar energy — designed for local barangay communities in the Philippines.
+                Stay connected during emergencies, disasters, or power outages.
+            </p>
+
+            <!-- Action buttons -->
+            <div class="hero-actions">
+                <a href="#download" class="btn btn-primary">Download Now</a>
+                <a href="#how-it-works" class="btn btn-outline">Learn More →</a>
+            </div>
+
+            <!-- Quick statistics -->
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">300m</span>
+                    <span class="stat-label">BLE Range</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">Servers Needed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">☀️</span>
+                    <span class="stat-label">Solar Powered</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero image -->
+        <div class="hero-visual">
+            <img src="hero.png" alt="BlueMesh Network Visualization" class="hero-image">
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         FEATURES SECTION
+         - Shows 6 key features of the BlueMesh system
+         - Each feature is a card with an icon, title, and description
+    ============================================================ -->
+    <section id="features">
+        <div class="container">
+            <!-- Section heading -->
+            <div class="section-header">
+                <span class="section-tag">Features</span>
+                <h2>Built for <span class="gradient-text">Resilient Communities</span></h2>
+                <p>BlueMesh combines solar energy, Bluetooth mesh networking, and a dedicated Android app to keep
+                    barangay communities connected.</p>
+            </div>
+
+            <!-- Feature cards grid (3 columns on desktop) -->
+            <div class="features-grid">
+
+                <div class="feature-card">
+                    <div class="feature-icon">📡</div>
+                    <h3>BLE Mesh Networking</h3>
+                    <p>Decentralized device-to-device communication using Bluetooth Low Energy. Messages hop between
+                        nearby devices, extending reach up to 300 meters per hop.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">☀️</div>
+                    <h3>Solar-Powered Nodes</h3>
+                    <p>Relay nodes are powered by solar panels, ensuring uninterrupted operation during grid outages and
+                        power failures. Self-sustaining energy for 24/7 resilience.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📴</div>
+                    <h3>No Internet Required</h3>
+                    <p>Works completely offline via Bluetooth. Designed for typhoons, power outages, remote barangays,
+                        and areas where cellular infrastructure is unavailable.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Android Mobile App</h3>
+                    <p>A user-friendly Android application for real-time, low-latency text messaging. Just open and
+                        start communicating with nearby users instantly.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Weatherproof Hardware</h3>
+                    <p>Relay nodes are housed in weatherproof enclosures designed to withstand harsh Philippine weather
+                        — including typhoons, heavy rain, and extreme heat.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌪️</div>
+                    <h3>Disaster Resilient</h3>
+                    <p>Purpose-built for emergency and disaster response. When typhoons knock out cell towers and power
+                        grids, BlueMesh keeps your community connected.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         HOW IT WORKS SECTION
+         - 4-step process explaining how BlueMesh operates
+         - Each step has a number, title, and description
+    ============================================================ -->
+    <section id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">How It Works</span>
+                <h2>Simple, Powerful, <span class="gradient-text">Off-Grid</span></h2>
+                <p>Solar-powered relay nodes and your Android phone are all it takes to build a resilient communication
+                    network.</p>
+            </div>
+
+            <div class="steps-container">
+                <!-- Step 1 -->
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Deploy Solar Relay Nodes</h3>
+                        <p>Place weatherproof, solar-powered Bluetooth mesh relay nodes at strategic points across your
+                            barangay. They charge themselves and run 24/7.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Install the App</h3>
+                        <p>Download and install the BlueMesh APK on any Android device. No account creation needed —
+                            just open the app and you're ready.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Discover Nearby Peers</h3>
+                        <p>BlueMesh scans for nearby devices using Bluetooth Low Energy. Other users within range
+                            automatically appear in your peer list.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Send Messages</h3>
+                        <p>Start chatting with real-time text messaging. Messages hop through relay nodes and nearby
+                            devices, reaching people across the barangay.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         ABOUT SECTION
+         - Explains the project background and motivation
+         - Shows the technology stack used
+         - Links to the BitChat reference project on GitHub
+    ============================================================ -->
+    <section id="about">
+        <div class="container">
+            <div class="about-grid">
+                <!-- Left: Project description -->
+                <div class="about-content">
+                    <span class="section-tag">About the Project</span>
+                    <h2>Communication for <span class="gradient-text">Every Barangay</span></h2>
+                    <p>
+                        <strong>BlueMesh</strong> is a capstone research project from <strong>ICCT College</strong>
+                        that designs a self-sustaining Bluetooth mesh communication system powered by solar energy
+                        for local barangay communities in the Philippines.
+                    </p>
+                    <p>
+                        The system addresses communication challenges in rural and disaster-prone areas by providing
+                        free, private, and infrastructure-independent messaging.
+                    </p>
+
+                    <!-- BitChat reference link -->
+                    <a href="https://github.com/permissionlesstech/bitchat" target="_blank" class="btn btn-outline"
+                        style="margin-top: 12px;">
+                        🔗 View BitChat Reference on GitHub
+                    </a>
+
+                    <!-- Key highlights list -->
+                    <ul class="highlights-list">
+                        <li>✅ Infrastructure-independent messaging</li>
+                        <li>✅ Free — no cellular data or internet costs</li>
+                        <li>✅ Private — no data collection or tracking</li>
+                        <li>✅ Disaster-ready — typhoon and outage resilient</li>
+                    </ul>
+                </div>
+
+                <!-- Right: Technology stack card -->
+                <div class="about-visual">
+                    <div class="tech-card">
+                        <h4>Technology Stack</h4>
+                        <div class="tech-item">
+                            <span class="tech-dot blue"></span>
+                            <div>
+                                <strong>Bluetooth Low Energy</strong>
+                                <small>Mesh device-to-device communication</small>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-dot yellow"></span>
+                            <div>
+                                <strong>Solar Power System</strong>
+                                <small>Self-sustaining relay node energy</small>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-dot cyan"></span>
+                            <div>
+                                <strong>Arduino / Microcontroller</strong>
+                                <small>Hardware node firmware</small>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-dot green"></span>
+                            <div>
+                                <strong>Python</strong>
+                                <small>App logic &amp; network tools</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         TEAM SECTION
+         - Lists all 10 team members with their initials as avatars
+    ============================================================ -->
+    <section id="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">The Team</span>
+                <h2>Built by <span class="gradient-text">ICCT College</span></h2>
+                <p>A capstone research project by students dedicated to bringing resilient communication to Filipino
+                    communities.</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="avatar">JA</div><span>Jemar Abid</span>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">RA</div><span>Roselle Abrencillo</span>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">AA</div><span>Aliana Acar Alarcon</span>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">RC</div><span>Ricky Camarse</span>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">FG</div><span>Fritz Gerard Jamin Gayta</span>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">MM</div><span>Maria Michaela D. Marquez</span>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">AS</div><span>Arch Jonel F. Sabado</span>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">CS</div><span>Christianne D. Salapunen</span>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">ET</div><span>Ericka Mae D. Tabor</span>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">JV</div><span>Josephine Villasante</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         DOWNLOAD SECTION
+         - Two download cards: Android APK and Windows Installer
+         - Each card links to the downloadable file
+    ============================================================ -->
+    <section id="download">
+        <div class="container">
+            <div class="download-box">
+                <div class="section-header">
+                    <span class="section-tag">Download</span>
+                    <h2>Get <span class="gradient-text">BlueMesh</span> Now</h2>
+                    <p>Available for Android and Windows. Connect with your barangay — no internet, no cellular data, no
+                        cost.</p>
+                </div>
+
+                <div class="download-grid">
+                    <!-- Android download -->
+                    <a href="#" class="download-card" id="download-android">
+                        <span class="download-emoji">🤖</span>
+                        <div class="download-info">
+                            <span class="download-label">Download for</span>
+                            <span class="download-platform">Android</span>
+                            <span class="download-meta">APK • v1.0 Beta</span>
+                        </div>
+                    </a>
+
+                    <!-- Windows download -->
+                    <a href="#" class="download-card" id="download-windows">
+                        <span class="download-emoji">🪟</span>
+                        <div class="download-info">
+                            <span class="download-label">Download for</span>
+                            <span class="download-platform">Windows</span>
+                            <span class="download-meta">Installer • v1.0 Beta</span>
+                        </div>
+                    </a>
+                </div>
+
+                <p class="download-note">Beta release — developed as part of an ICCT College capstone research project.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         FOOTER
+         - Contains brand info, navigation links, and credits
+    ============================================================ -->
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <!-- Brand description -->
+                <div class="footer-brand">
+                    <strong>🔷 BlueMesh</strong>
+                    <p>Solar-powered mesh communication for Philippine barangay communities.</p>
+                </div>
+
+                <!-- Footer link columns -->
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Product</h4>
+                        <a href="#features">Features</a>
+                        <a href="#how-it-works">How It Works</a>
+                        <a href="#download">Download</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>References</h4>
+                        <a href="https://github.com/permissionlesstech/bitchat" target="_blank">BitChat on GitHub</a>
+                        <a href="https://www.bluetooth.com/specifications/mesh-specifications/"
+                            target="_blank">Bluetooth Mesh Spec</a>
+                        <a href="#about">About the Project</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Institution</h4>
+                        <a href="#team">Research Team</a>
+                        <a href="#">ICCT College</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom credits -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 BlueMesh — ICCT College Capstone Project</p>
+                <p>Reference: <a href="https://github.com/permissionlesstech/bitchat" target="_blank">BitChat</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <!-- Links to our external JS file that handles interactivity -->
+    <script src="script.js"></script>
+</body>
+
+</html>
