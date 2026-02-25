@@ -86,6 +86,8 @@ for (var i = 0; i < animatedElements.length; i++) {
    4. SMOOTH SCROLLING FOR ANCHOR LINKS
    - When clicking a link like "#features", the page
      smoothly scrolls to that section instead of jumping
+   - Only applies to internal links (href starts with "#")
+   - Skips external links like download URLs
 =========================================================== */
 var anchorLinks = document.querySelectorAll('a[href^="#"]');
 
@@ -93,8 +95,12 @@ for (var i = 0; i < anchorLinks.length; i++) {
   anchorLinks[i].addEventListener('click', function (event) {
     var targetId = this.getAttribute('href');
 
-    // Skip if it's just "#"
+    // Skip if it's just "#" (let browser handle it)
     if (targetId === '#') return;
+
+    // Skip if this link also has a full URL (external links)
+    var fullHref = this.href;
+    if (fullHref.indexOf('github.com') !== -1) return;
 
     var targetElement = document.querySelector(targetId);
     if (!targetElement) return;
