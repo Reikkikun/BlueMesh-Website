@@ -75,3 +75,8 @@ for (var i = 0; i < anchorLinks.length; i++) {
     });
   });
 }
+
+/* --- Disable Right-Click --- */
+document.addEventListener('contextmenu', function (e) {
+  e.preventDefault();
+}, false);

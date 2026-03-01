@@ -30,6 +30,11 @@ body {
   color: var(--text-white);
   line-height: 1.7;
   overflow-x: hidden;
+  user-select: none;
+  /* Prevent text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 a {
@@ -40,6 +45,9 @@ a {
 img {
   max-width: 100%;
   display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
 /* --- Navigation --- */
