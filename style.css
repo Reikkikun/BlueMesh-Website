@@ -1,96 +1,48 @@
-/* ===========================================================
-   BLUEMESH LANDING PAGE — STYLESHEET (style.css)
-   ===========================================================
-   This CSS file controls the visual design of the entire website.
-   
-   STRUCTURE:
-   1. Reset & Variables — Base styles and color definitions
-   2. Navigation — Top navbar and mobile menu
-   3. Hero — Main banner section
-   4. Features — Feature cards grid
-   5. How It Works — Step-by-step guide
-   6. About — Project info and tech stack
-   7. Team — Team members grid
-   8. Download — Download cards
-   9. Footer — Bottom section
-   10. Animations — Fade-in effects
-   11. Responsive — Mobile/tablet adjustments
-=========================================================== */
+/* --- Variables --- */
 
-
-/* ===========================================================
-   1. RESET & VARIABLES
-   - Removes default browser margins/padding
-   - Defines reusable colors and fonts as CSS variables
-=========================================================== */
-
-/* Remove all default margins and paddings */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* Makes sizing more predictable */
 }
 
-/* CSS Variables — define colors and fonts once, reuse everywhere */
 :root {
   --bg-dark: #06080f;
-  /* Main background (very dark blue) */
   --bg-card: #0d1220;
-  /* Card/box background */
   --bg-card-hover: #111828;
-  /* Card hover state */
   --border: rgba(56, 130, 246, 0.12);
-  /* Subtle blue borders */
   --border-hover: rgba(56, 130, 246, 0.3);
-  /* Brighter border on hover */
   --text-white: #e8ecf4;
-  /* Primary text color */
   --text-gray: #8892a8;
-  /* Secondary text color */
   --text-muted: #5a6478;
-  /* Least prominent text */
   --blue: #3882f6;
-  /* Primary accent color */
   --cyan: #06b6d4;
-  /* Secondary accent color */
   --font: 'Inter', sans-serif;
-  /* Main font family */
 }
 
-/* Smooth scrolling when clicking anchor links */
 html {
   scroll-behavior: smooth;
 }
 
-/* Base body styles */
 body {
   font-family: var(--font);
   background: var(--bg-dark);
   color: var(--text-white);
   line-height: 1.7;
   overflow-x: hidden;
-  /* Prevent horizontal scrollbar */
 }
 
-/* Remove underlines from links */
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* Make images responsive */
 img {
   max-width: 100%;
   display: block;
 }
 
-
-/* ===========================================================
-   2. NAVIGATION
-   - Fixed at the top of the page (stays visible while scrolling)
-   - Becomes semi-transparent with blur effect when scrolling
-=========================================================== */
+/* --- Navigation --- */
 
 #navbar {
   position: fixed;
@@ -98,31 +50,23 @@ img {
   left: 0;
   right: 0;
   z-index: 1000;
-  /* Ensures navbar stays above all other content */
   padding: 0 24px;
   background: transparent;
   transition: 0.3s;
-  /* Smooth transition for scroll effect */
 }
 
-/* This class is added by JavaScript when user scrolls down */
 #navbar.scrolled {
   background: rgba(6, 8, 15, 0.85);
   backdrop-filter: blur(20px);
-  /* Frosted glass effect */
   border-bottom: 1px solid var(--border);
 }
 
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  /* Center the navbar content */
   display: flex;
-  /* Flexbox for horizontal layout */
   align-items: center;
-  /* Vertically center items */
   justify-content: space-between;
-  /* Logo on left, links on right */
   height: 72px;
 }
 
@@ -183,32 +127,23 @@ img {
   border-radius: 2px;
 }
 
-
-/* ===========================================================
-   3. HERO SECTION
-   - Full-height opening section with headline and image
-   - Uses flexbox for side-by-side layout
-=========================================================== */
+/* --- Hero --- */
 
 #hero {
   min-height: 100vh;
-  /* Full viewport height */
   display: flex;
   align-items: center;
   padding: 120px 24px 80px;
   max-width: 1200px;
   margin: 0 auto;
   gap: 60px;
-  /* Space between text and image */
 }
 
 .hero-content {
   flex: 1;
-  /* Take up available space */
   max-width: 600px;
 }
 
-/* "ICCT College Capstone Project" badge */
 .hero-badge {
   display: inline-block;
   padding: 6px 16px;
@@ -222,7 +157,6 @@ img {
 
 #hero h1 {
   font-size: clamp(2.5rem, 5vw, 4rem);
-  /* Responsive font size */
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 24px;
@@ -318,7 +252,6 @@ img {
   margin-top: 4px;
 }
 
-/* Hero image area */
 .hero-visual {
   flex: 1;
   display: flex;
@@ -332,11 +265,7 @@ img {
   border-radius: 20px;
 }
 
-
-/* ===========================================================
-   4. SHARED SECTION STYLES
-   - Reusable styles for all content sections
-=========================================================== */
+/* --- Sections --- */
 
 section {
   padding: 100px 24px;
@@ -347,7 +276,6 @@ section {
   margin: 0 auto;
 }
 
-/* Section header — centered title block */
 .section-header {
   text-align: center;
   max-width: 640px;
@@ -377,11 +305,7 @@ section {
   color: var(--text-gray);
 }
 
-
-/* ===========================================================
-   5. FEATURES SECTION
-   - 3-column grid of feature cards
-=========================================================== */
+/* --- Features --- */
 
 #features {
   background: linear-gradient(180deg, var(--bg-dark) 0%, #0a0e1a 50%, var(--bg-dark) 100%);
@@ -390,7 +314,6 @@ section {
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* 3 equal columns */
   gap: 24px;
 }
 
@@ -406,7 +329,6 @@ section {
   background: var(--bg-card-hover);
   border-color: var(--border-hover);
   transform: translateY(-4px);
-  /* Lift up on hover */
   box-shadow: 0 0 40px rgba(56, 130, 246, 0.15);
 }
 
@@ -427,11 +349,7 @@ section {
   line-height: 1.65;
 }
 
-
-/* ===========================================================
-   6. HOW IT WORKS SECTION
-   - Vertical list of numbered steps
-=========================================================== */
+/* --- How It Works --- */
 
 .steps-container {
   max-width: 700px;
@@ -466,7 +384,6 @@ section {
   background-clip: text;
   line-height: 1;
   flex-shrink: 0;
-  /* Don't compress the number */
 }
 
 .step-content h3 {
@@ -481,11 +398,7 @@ section {
   line-height: 1.65;
 }
 
-
-/* ===========================================================
-   7. ABOUT SECTION
-   - Two-column layout: description on left, tech stack on right
-=========================================================== */
+/* --- About --- */
 
 #about {
   background: linear-gradient(180deg, var(--bg-dark) 0%, #0a0e1a 50%, var(--bg-dark) 100%);
@@ -494,7 +407,6 @@ section {
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* Two equal columns */
   gap: 60px;
   align-items: center;
 }
@@ -520,7 +432,7 @@ section {
   color: var(--text-white);
 }
 
-/* Highlights checklist */
+/* Highlights list */
 .highlights-list {
   list-style: none;
   margin-top: 24px;
@@ -612,11 +524,7 @@ section {
   color: var(--text-muted);
 }
 
-
-/* ===========================================================
-   8. TEAM SECTION
-   - Grid of team member cards with initials as avatars
-=========================================================== */
+/* --- Team --- */
 
 #team {
   background: linear-gradient(180deg, var(--bg-dark) 0%, #0a0e1a 50%, var(--bg-dark) 100%);
@@ -625,7 +533,6 @@ section {
 .team-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  /* 5 columns */
   gap: 16px;
   max-width: 900px;
   margin: 0 auto;
@@ -670,11 +577,7 @@ section {
   line-height: 1.3;
 }
 
-
-/* ===========================================================
-   9. DOWNLOAD SECTION
-   - Highlighted box with download cards
-=========================================================== */
+/* --- Download --- */
 
 #download {
   padding: 120px 24px;
@@ -692,7 +595,6 @@ section {
 .download-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /* 2 columns */
   gap: 20px;
   max-width: 600px;
   margin: 0 auto;
@@ -751,11 +653,7 @@ section {
   color: var(--text-muted);
 }
 
-
-/* ===========================================================
-   10. FOOTER
-   - Page bottom with links and branding
-=========================================================== */
+/* --- Footer --- */
 
 #footer {
   padding: 0 24px;
